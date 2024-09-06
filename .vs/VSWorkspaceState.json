@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ConversorMetro",
+    "\\ConversorMetro\\ConversorMetro",
+    "\\ConversorMetro\\ConversorMetro\\Controllers",
+    "\\ConversorMetro\\ConversorMetro\\Models",
+    "\\ConversorMetro\\ConversorMetro\\Views",
+    "\\ConversorMetro\\ConversorMetro\\Views\\Home"
   ],
+  "SelectedNode": "\\ConversorMetro\\ConversorMetro\\Views\\Home\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

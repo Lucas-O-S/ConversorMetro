@@ -3,20 +3,75 @@
 }
 
 <div class="text-center">
-    <div>
-        <form>
-            <div>
-            Digite valor em metros
-            <input type="number" />
-            </div>
-            <label>Medida a converter</label>
-            <select>
-                <option value="ML">Milimetro</option>
-                <option value="KL">Kilometro</option>
+    <div class= "d-flex justify-content-center ">
+        <form class="row" asp-action="Converter" id="VerificarString"> 
+            <div class="col-sm-auto m-5">
+                <label class="row">Digite valor em metros</label>
+                <br />
 
-            </select>
+                <input type="text" class="row" Name="valorMetros" id="valorMetros" value="@ViewBag.valorMetros">
+            </div>
+            <div class="col-sm-auto m-5">
+                <label class="row">Medida a converter</label>
+                <br />
+                <select class="row" Name="conversao">
+                    <option value="0" >Centrímetro</option>
+                    <option value="1" >Milímetro</option>
+                    <option value="2">Quiilometro</option>
+                    <option value="3">Pé</option>
+                    <option value="4">Milha</option>
+                </select>
+            </div>
+            <div class="col-sm-auto m-5">
+
+                <br />
+                <br />
+
+
+                <input type="submit" class="row" value="CONVERTER" />
+            </div>
+
+            <div class="row-sm-auto m-5">
+                <label class="row">Resultado</label>
+                <br />
+
+                <input type="text" class="row"disabled value="@Model"/>
+            </div>
+
         
 
         </form>
     </div>
 </div>
+
+<script>
+    window.onload = function(){
+           VerificarString();
+           DefinirValorPadrao();
+    };
+
+   function VerificarString() {
+        document.getElementById("VerificarString").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var valorMetros = document.getElementById("valorMetros").value;
+            var valorConvertido = parseFloat(valorMetros);
+
+            if (isNaN(valorConvertido)) {
+                alert("Digite um valor válido");
+            } else {
+                document.getElementById("valorMetros").value = valorConvertido;
+                this.submit();
+            }
+        });
+    }
+
+     function DefinirValorPadrao() {
+   
+        document.querySelector('select[name="conversao"]').value = @ViewBag.conversao;
+
+     }
+
+
+        
+</script>
